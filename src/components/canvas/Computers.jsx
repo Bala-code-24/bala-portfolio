@@ -9,16 +9,17 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor='black' />
+      {/* Adjust lights for mobile */}
+      <hemisphereLight intensity={isMobile ? 0.1 : 0.15} groundColor="black" />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
         penumbra={1}
-        intensity={1}
+        intensity={isMobile ? 0.5 : 1} // Reduce intensity on mobile
         castShadow
-        shadow-mapSize={1024}
+        shadow-mapSize={isMobile ? 512 : 1024} // Lower shadow map size on mobile
       />
-      <pointLight intensity={1} />
+      <pointLight intensity={isMobile ? 0.5 : 1} />
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
@@ -28,6 +29,7 @@ const Computers = ({ isMobile }) => {
     </mesh>
   );
 };
+
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
