@@ -1,3 +1,4 @@
+import enthira from "../assets/11.jpg";
 import {
   mobile,
   backend,
@@ -54,7 +55,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "IoT Developer",
     icon: creator,
   },
 ];
@@ -116,58 +117,49 @@ const technologies = [
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Best Innovation Award - Enthirathon",
+    company_name: "National Level Hackathon",
+    icon: meta, 
+    iconBg: "#FFD700",
+    date: "Aug 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Won Best Innovation with a prize of ₹10,000.",
+      "Developed an IoT-based safety solution.",
+      "Presented in front of top industry mentors.",
     ],
+    images: [enthira],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
+    title: "Hackmageddon 2023 - Top 6 Finalist",
+    company_name: "National Hackathon - 390 Teams",
     icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    iconBg: "#C0C0C0",
+    date: "Oct 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Reached finals among 390 teams.",
+      "Secured a cash prize of ₹2,000.",
+      "Built a real-time emergency response app.",
+    ],
+    images: [enthira
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
+    title: "DevInterns - Fly11 Program",
+    company_name: "Internship Program",
+    icon: starbucks,
     iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
+    date: "Sep 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Presented my React-based solution.",
+      "Recognized for frontend creativity.",
+      "Participated in code reviews & collabs.",
+    ],
+    images: [
+      enthira,
     ],
   },
 ];
+
 
 const testimonials = [
   {
@@ -198,67 +190,211 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Project Name",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Detailed description of the project that explains what it does, the technologies used, challenges overcome, and the impact it had.",
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "text-blue-400",
       },
       {
         name: "mongodb",
-        color: "green-text-gradient",
+        color: "text-green-400",
       },
       {
         name: "tailwind",
-        color: "pink-text-gradient",
+        color: "text-pink-400",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: enthira,
+    source_code_link: "https://github.com/yourUsername/project-repo",
+    // New fields for detailed project page
+    competitions: [
+      {
+        name: "International Hackathon 2023",
+        award: "First Place",
+        year: "2023"
+      },
+      {
+        name: "Tech Innovation Challenge",
+        award: "Best UI/UX Design",
+        year: "2022"
+      }
+    ],
+    team_members: [
+      {
+        name: "Jane Doe",
+        role: "Frontend Developer",
+        avatar: enthira // Path to team member's avatar
+      },
+      {
+        name: "John Smith",
+        role: "Backend Developer",
+        avatar: enthira
+      },
+      {
+        name: "Alex Johnson",
+        role: "UI/UX Designer",
+        avatar: enthira
+      }
+    ],
+    gallery: [
+      {
+        src:enthira,
+        caption: "Dashboard interface showing key metrics"
+      },
+      {
+        src: enthira,
+        caption: "User profile page with customization options"
+      },
+      {
+        src: enthira,
+        caption: "Mobile responsive view"
+      },
+      {
+        src: enthira,
+        caption: "Admin control panel"
+      }
+    ]
   },
   {
-    name: "Job IT",
+    name: "Project Name",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Detailed description of the project that explains what it does, the technologies used, challenges overcome, and the impact it had.",
     tags: [
       {
         name: "react",
-        color: "blue-text-gradient",
+        color: "text-blue-400",
       },
       {
-        name: "restapi",
-        color: "green-text-gradient",
+        name: "mongodb",
+        color: "text-green-400",
       },
       {
-        name: "scss",
-        color: "pink-text-gradient",
+        name: "tailwind",
+        color: "text-pink-400",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: enthira,
+    source_code_link: "https://github.com/yourUsername/project-repo",
+    // New fields for detailed project page
+    competitions: [
+      {
+        name: "International Hackathon 2023",
+        award: "First Place",
+        year: "2023"
+      },
+      {
+        name: "Tech Innovation Challenge",
+        award: "Best UI/UX Design",
+        year: "2022"
+      }
+    ],
+    team_members: [
+      {
+        name: "Jane Doe",
+        role: "Frontend Developer",
+        avatar: enthira // Path to team member's avatar
+      },
+      {
+        name: "John Smith",
+        role: "Backend Developer",
+        avatar: enthira
+      },
+      {
+        name: "Alex Johnson",
+        role: "UI/UX Designer",
+        avatar: enthira
+      }
+    ],
+    gallery: [
+      {
+        src:enthira,
+        caption: "Dashboard interface showing key metrics"
+      },
+      {
+        src: enthira,
+        caption: "User profile page with customization options"
+      },
+      {
+        src: enthira,
+        caption: "Mobile responsive view"
+      },
+      {
+        src: enthira,
+        caption: "Admin control panel"
+      }
+    ]
   },
   {
-    name: "Trip Guide",
+    name: "Project Name",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Detailed description of the project that explains what it does, the technologies used, challenges overcome, and the impact it had.",
     tags: [
       {
-        name: "nextjs",
-        color: "blue-text-gradient",
+        name: "react",
+        color: "text-blue-400",
       },
       {
-        name: "supabase",
-        color: "green-text-gradient",
+        name: "mongodb",
+        color: "text-green-400",
       },
       {
-        name: "css",
-        color: "pink-text-gradient",
+        name: "tailwind",
+        color: "text-pink-400",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: enthira,
+    source_code_link: "https://github.com/yourUsername/project-repo",
+    // New fields for detailed project page
+    competitions: [
+      {
+        name: "International Hackathon 2023",
+        award: "First Place",
+        year: "2023"
+      },
+      {
+        name: "Tech Innovation Challenge",
+        award: "Best UI/UX Design",
+        year: "2022"
+      }
+    ],
+    team_members: [
+      {
+        name: "Jane Doe",
+        role: "Frontend Developer",
+        avatar: enthira // Path to team member's avatar
+      },
+      {
+        name: "John Smith",
+        role: "Backend Developer",
+        avatar: enthira
+      },
+      {
+        name: "Alex Johnson",
+        role: "UI/UX Designer",
+        avatar: enthira
+      }
+    ],
+    gallery: [
+      {
+        src:enthira,
+        caption: "Dashboard interface showing key metrics"
+      },
+      {
+        src: enthira,
+        caption: "User profile page with customization options"
+      },
+      {
+        src: enthira,
+        caption: "Mobile responsive view"
+      },
+      {
+        src: enthira,
+        caption: "Admin control panel"
+      }
+    ]
   },
 ];
 
