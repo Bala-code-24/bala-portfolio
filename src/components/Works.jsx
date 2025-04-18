@@ -1,5 +1,4 @@
 import React from "react";
-import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -23,11 +22,9 @@ const ProjectCard = ({
     console.log("Project clicked:", name);
     const projectSlug = name.toLowerCase().replace(/\s+/g, '-');
     console.log("Navigating to:", `/projects/${projectSlug}`);
-    
-    // Find the full project data from projects array to make sure we pass all fields
+
     const fullProject = projects.find(p => p.name === name);
-    
-    // Navigate to the project detail page
+
     navigate(`/projects/${projectSlug}`, {
       state: { project: fullProject }
     });
@@ -49,7 +46,7 @@ const ProjectCard = ({
           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
               onClick={(e) => {
-                e.stopPropagation(); // Prevent triggering the parent onClick
+                e.stopPropagation(); // Prevents parent click
                 window.open(source_code_link, "_blank");
               }}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
@@ -65,7 +62,9 @@ const ProjectCard = ({
 
         <div className='mt-5'>
           <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description.substring(0, 100)}...</p>
+          <p className='mt-2 text-secondary text-[14px]'>
+            {description.substring(0, 100)}...
+          </p>
         </div>
 
         <div className='mt-4 flex flex-wrap gap-2'>
@@ -87,7 +86,7 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
+        <p className={`${styles.sectionSubText}`}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
 
