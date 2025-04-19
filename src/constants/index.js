@@ -9,7 +9,22 @@ import b1 from "../assets/banyutrack-z/b1.jpg";
 import b2 from "../assets/banyutrack-z/b2.jpg";
 import b3 from "../assets/banyutrack-z/b3.jpg";
 import b4 from "../assets/banyutrack-z/b4.jpg";
-import me from "../assets/n1.png";
+import a1 from "../assets/nourish net/1.png";
+import a2 from "../assets/nourish net/2.png";
+import a3 from "../assets/nourish net/3.png";
+import a4 from "../assets/nourish net/5.jpg";
+import c1 from "../assets/Kibo/1.jpg";
+import c2 from "../assets/Kibo/2.jpg";
+import c3 from "../assets/Kibo/kibo.jpeg";
+import c4 from "../assets/Kibo/3.jpg";
+import me from "../assets/bala.png";
+import suriya from "../assets/Suriya.png";
+import thiru from "../assets/thiru.png";
+import Kaviya from "../assets/kaviya.png";
+import pavi from "../assets/pavi.png";
+import jaya from "../assets/jaya.png";
+import domesh from "../assets/domesh.png";
+
 import {
   mobile,
   backend,
@@ -189,48 +204,55 @@ const projects = [
       }
     ],
     team_members: [
-      { name: "Balaji Santhanam", role: "Frontend Developer", avatar: me },
-      { name: "Suriya S", role: "IoT & Backend Engineer", avatar: enthira },
-      { name: "Domesh U", role: "ML & Data Logic", avatar: enthira },
-      { name: "Kaviya S", role: "UI Designer & Documentation", avatar: enthira }
+      { name: "Balaji Santhanam", role: "Full Stack Developer & Iot Developer", avatar: me },
+      { name: "Suriya S", role: "IoT & Backend Engineer", avatar: suriya },
+      { name: "Domesh U", role: "Designer", avatar: domesh },
+      { name: "Kaviya S", role: "UI Designer & Documentation", avatar: Kaviya }
     ],
     gallery: [
-      { src: b1, caption: "Live dashboard interface monitoring water levels and quality" },
-      { src: b2, caption: "User mobile alert system for real-time water conditions" },
-      { src: b3, caption: "Mobile responsive view of the user dashboard" },
-      { src: b4, caption: "Admin panel for configuring thresholds and analytics" }
+      { src: b1,  },
+      { src: b2, },
+      { src: b3,  },
+      { src: b4,  }
     ]
   },
   {
     name: "Kibo",
     description:
-      "Kibo is a digital community platform built to enhance collaboration and engagement among campus clubs, students, and organizers. Featuring a centralized dashboard, event calendar, membership systems, and notification services, Kibo bridges the gap between students and their extracurricular engagements. Developed with MERN stack and deployed for student use at our institution.",
+      "We presented KIBO, an AI-powered agricultural assistant that leverages IoT and machine learning to offer farmers real-time insights and actionable recommendations, aimed at promoting sustainable and efficient agricultural practices.",
     tags: [
       { name: "react", color: "text-blue-400" },
       { name: "node.js", color: "text-yellow-400" },
-      { name: "mongodb", color: "text-green-400" },
+      { name: "firebase", color: "text-green-400" },
       { name: "express.js", color: "text-yellow-300" },
-      { name: "tailwind", color: "text-pink-400" }
+      { name: "tailwind", color: "text-pink-400" },
+      { name: "Iot", color: "text-yellow-300" }
     ],
-    image: enthira,
+    image: c4,
     source_code_link: "https://github.com/balajisanthanam200/Kibo", // Update if necessary
     competitions: [
       {
-        name: "Campus Innovation Week",
-        award: "Runner-up",
-        year: "2023"
+        name: "Data Sprint-24",
+        award: "Winner",
+        year: "2024"
+      },  {
+        name: "Hack-Summit",
+        award: "Best Sustainable Project Award",
+        year: "2024"
       }
+      
     ],
     team_members: [
-      { name: "Balaji Santhanam", role: "Full Stack Developer", avatar: me },
-      { name: "Jayanesh D", role: "Backend Developer", avatar: enthira },
-      { name: "Pavithra M", role: "UI/UX Designer", avatar: enthira }
+      { name: "Balaji Santhanam", role: "Full Stack Developer & Iot Developer", avatar: me },
+      { name: "Jayanesh D", role: "ML & Data Logic", avatar: jaya },
+      { name: "Pavithra M", role: "UI/UX Designer", avatar: pavi },
+      { name: "Thirumurugan A K S", role: "Full Stack Developer", avatar: thiru },
     ],
     gallery: [
-      { src: enthira, caption: "Event dashboard with calendar integration" },
-      { src: enthira, caption: "Student portal and registration view" },
-      { src: enthira, caption: "Admin management panel for clubs" },
-      { src: enthira, caption: "Mobile-friendly interface for events" }
+      { src: c1,  },
+      { src: c2,  },
+      { src: c3,  },
+    
     ]
   },
   {
@@ -244,7 +266,7 @@ const projects = [
       { name: "mapbox", color: "text-green-300" },
       { name: "cloud functions", color: "text-purple-400" }
     ],
-    image: enthira,
+    image: a4,
     source_code_link: "https://github.com/balajisanthanam200/NourishNet", // Update if necessary
     competitions: [
       {
@@ -254,16 +276,16 @@ const projects = [
       }
     ],
     team_members: [
-      { name: "Balaji Santhanam", role: "Frontend & UI Developer", avatar: enthira },
-      { name: "Thirumurugan A K S", role: "Cloud & Backend Engineer", avatar: enthira },
-      { name: "Shanmugashree M", role: "Data & NGO Integration", avatar: enthira },
-      { name: "Jayanesh D", role: "Logistics Algorithm Developer", avatar: enthira }
+      { name: "Balaji Santhanam", role: "Frontend & UI Developer", avatar: me },
+      { name: "Thirumurugan A K S", role: "Cloud & Backend Engineer", avatar: thiru },
+      { name: "Pavithra M", role: "UI/UX Designer", avatar: pavi },
+      { name: "Jayanesh D", role: "ML & Data Logic", avatar: jaya }
     ],
     gallery: [
-      { src: enthira, caption: "Food donor dashboard with donation status" },
-      { src: enthira, caption: "Live map tracking deliveries to NGOs" },
-      { src: enthira, caption: "Mobile view showing donation history" },
-      { src: enthira, caption: "NGO portal accepting and confirming deliveries" }
+      { src: a1,  },
+      { src: a2,  },
+      { src: a3,  },
+
     ]
   }
 ];

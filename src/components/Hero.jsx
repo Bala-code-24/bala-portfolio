@@ -10,7 +10,6 @@ const Hero = () => {
     { name: "GitHub", icon: <FaGithub size={20} />, color: "#333", url: "https://github.com/Bala-code-24" },
     { name: "Twitter", icon: <FaTwitter size={20} />, color: "#1DA1F2", url: "https://x.com/im_Speedater?t=Qn27qX4pAlmjex-P7Vljdg&s=09" },
     { name: "Instagram", icon: <FaInstagram size={20} />, color: "#E4405F", url: "https://www.instagram.com/balaji_santhanam_?igsh=cXp5czA0bHEyNW9q" },
-
   ];
 
   const techStack = [
@@ -49,8 +48,9 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 z-10`}>
-        <div className="flex flex-col justify-center items-center mt-5">
+      <div className={`absolute inset-0 max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5 z-10`}>
+        {/* Left line decoration */}
+        <div className="hidden sm:flex flex-col justify-center items-center mt-5">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -65,134 +65,246 @@ const Hero = () => {
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-10 w-full">
-          <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="flex-1"
-          >
-            <h1 className={`${styles.heroHeadText} text-white flex items-center gap-4`}>
-              Hi, I'm{" "}
-              <motion.span
-                className="text-[#915EFF]"
-                animate={{ 
-                  color: ["#915EFF", "#4731B6", "#915EFF"] 
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
+        {/* Mobile-first layout with proper spacing */}
+        <div className="flex flex-col w-full pt-20 sm:pt-28">
+          {/* Mobile layout (stacked) */}
+          <div className="block sm:hidden w-full mb-10">
+            <div className="flex justify-center mb-8">
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="relative"
               >
-                Balaji
-              </motion.span>
-            </h1>
-            <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-  I craft modern user interfaces, <br className="sm:block hidden" />
-  responsive web apps & smart IoT solutions
-</p>
-            
-            {/* Social Media Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="flex mt-6 gap-4"
-            >
-              {socialMedia.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative w-10 h-10 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm text-white overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                {/* Rotating gradient border */}
+                <motion.div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    background: "linear-gradient(90deg, #915EFF, #4731B6, #8844FF, #915EFF)",
+                    backgroundSize: "300% 300%",
+                    padding: "4px",
+                    transform: "scale(1.1)",
+                  }}
+                  animate={{
+                    backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                />
+                
+                {/* Glowing effect */}
+                <motion.div
+                  className="absolute inset-0 rounded-full blur-md"
+                  style={{
+                    background: "rgba(145, 94, 255, 0.3)",
+                    transform: "scale(1.15)",
+                  }}
+                  animate={{ opacity: [0.4, 0.7, 0.4] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                />
+                
+                {/* The actual image */}
+                <motion.div
+                  className="relative w-36 h-36 rounded-full overflow-hidden"
+                  animate={{ rotateY: [0, 10, 0, -10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  {/* Background pulse effect on hover/tap */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full opacity-75"
-                    style={{ backgroundColor: social.color }}
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.5, opacity: 0.3 }}
-                    whileTap={{ scale: 1.8, opacity: 0.5 }}
-                    transition={{ duration: 0.4 }}
+                  <img
+                    src={balajiImg}
+                    alt="Balaji"
+                    className="w-full h-full object-cover"
                   />
-                  
-                  {/* Icon */}
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    whileHover={{ rotate: 10 }}
-                    whileTap={{ rotate: -10, scale: 0.9 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    {social.icon}
-                  </motion.div>
-                </motion.a>
-              ))}
-            </motion.div>
-            <a href="#project">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 py-3 px-6 rounded-full bg-[#915EFF] text-white font-bold text-lg hover:bg-opacity-80 transition-all"
-            >
-              View my work
-            </motion.button>
-            </a>
-            
-          </motion.div>
+                </motion.div>
+              </motion.div>
+            </div>
 
-          {/* Image with gradient border and animation */}
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative flex-shrink-0"
-          >
-            {/* Rotating gradient border */}
+            {/* Mobile text content */}
             <motion.div
-              className="absolute inset-0 rounded-full p-3"
-              style={{
-                background: "linear-gradient(90deg, #915EFF, #4731B6, #8844FF, #915EFF)",
-                backgroundSize: "300% 300%",
-                padding: "4px",
-                transform: "scale(1.1)",
-              }}
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-              }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            />
-            
-            {/* Glowing effect */}
-            <motion.div
-              className="absolute inset-0 rounded-full blur-md"
-              style={{
-                background: "rgba(145, 94, 255, 0.3)",
-                transform: "scale(1.15)",
-              }}
-              animate={{ opacity: [0.4, 0.7, 0.4] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-            
-            {/* The actual image */}
-            <motion.div
-              className="relative w-36 h-36 sm:w-52 sm:h-52 rounded-full overflow-hidden"
-              animate={{ rotateY: [0, 10, 0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="text-center"
             >
-              <img
-                src={balajiImg}
-                alt="Balaji"
-                className="w-full h-full object-cover"
-              />
+              <h1 className={`${styles.heroHeadText} text-white`}>
+                Hi, I'm{" "}
+                <motion.span
+                  className="text-[#915EFF]"
+                  animate={{ 
+                    color: ["#915EFF", "#4731B6", "#915EFF"] 
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  Balaji
+                </motion.span>
+              </h1>
+              <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+                I craft modern user interfaces, <br />
+                responsive web apps & smart IoT solutions
+              </p>
+              
+              {/* Social Media Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="flex mt-4 gap-4 justify-center"
+              >
+                {socialMedia.map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-10 h-10 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm text-white overflow-hidden"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 rounded-full opacity-75"
+                      style={{ backgroundColor: social.color }}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1.5, opacity: 0.3 }}
+                      whileTap={{ scale: 1.8, opacity: 0.5 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div>
+                      {social.icon}
+                    </motion.div>
+                  </motion.a>
+                ))}
+              </motion.div>
+
+              <div className="mt-6">
+                <a href="#project">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="py-2 px-6 rounded-full bg-[#915EFF] text-white font-bold text-lg hover:bg-opacity-80 transition-all"
+                  >
+                    View my work
+                  </motion.button>
+                </a>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
+
+          {/* Desktop layout (side by side) */}
+          <div className="hidden sm:flex sm:flex-row sm:items-center sm:gap-10 w-full">
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="flex-1"
+            >
+              <h1 className={`${styles.heroHeadText} text-white flex items-center gap-4`}>
+                Hi, I'm{" "}
+                <motion.span
+                  className="text-[#915EFF]"
+                  animate={{ 
+                    color: ["#915EFF", "#4731B6", "#915EFF"] 
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                >
+                  Balaji
+                </motion.span>
+              </h1>
+              <p className={`${styles.heroSubText} mt-2 text-white-100`}>
+                I craft modern user interfaces, <br className="sm:block hidden" />
+                responsive web apps & smart IoT solutions
+              </p>
+              
+              {/* Social Media Section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.6 }}
+                className="flex mt-6 gap-4"
+              >
+                {socialMedia.map((social, index) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative w-10 h-10 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm text-white overflow-hidden"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 rounded-full opacity-75"
+                      style={{ backgroundColor: social.color }}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileHover={{ scale: 1.5, opacity: 0.3 }}
+                      whileTap={{ scale: 1.8, opacity: 0.5 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div>
+                      {social.icon}
+                    </motion.div>
+                  </motion.a>
+                ))}
+              </motion.div>
+              <a href="#project">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-8 py-3 px-6 rounded-full bg-[#915EFF] text-white font-bold text-lg hover:bg-opacity-80 transition-all"
+                >
+                  View my work
+                </motion.button>
+              </a>
+            </motion.div>
+
+            {/* Image with gradient border and animation */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="relative flex-shrink-0"
+            >
+              <motion.div
+                className="absolute inset-0 rounded-full p-3"
+                style={{
+                  background: "linear-gradient(90deg, #915EFF, #4731B6, #8844FF, #915EFF)",
+                  backgroundSize: "300% 300%",
+                  padding: "4px",
+                  transform: "scale(1.1)",
+                }}
+                animate={{
+                  backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              
+              <motion.div
+                className="absolute inset-0 rounded-full blur-md"
+                style={{
+                  background: "rgba(145, 94, 255, 0.3)",
+                  transform: "scale(1.15)",
+                }}
+                animate={{ opacity: [0.4, 0.7, 0.4] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              
+              <motion.div
+                className="relative w-52 h-52 rounded-full overflow-hidden"
+                animate={{ rotateY: [0, 10, 0, -10, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <img
+                  src={balajiImg}
+                  alt="Balaji"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Improved and better aligned floating tech icons */}
-      <div className="absolute bottom-24 w-full flex justify-center">
+      {/* Tech stack icons - positioned differently for mobile vs desktop */}
+      <div className="absolute bottom-28 sm:bottom-24 w-full flex justify-center">
         <motion.div
-          className="flex justify-center flex-wrap gap-5 px-4 max-w-md mx-auto"
+          className="flex justify-center flex-wrap gap-2 sm:gap-5 px-4 max-w-md mx-auto"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
@@ -200,7 +312,7 @@ const Hero = () => {
           {techStack.map((tech, index) => (
             <motion.div
               key={tech.name}
-              className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg"
               whileHover={{ scale: 1.2, rotate: 5, backgroundColor: tech.color, color: "#fff" }}
               animate={{ y: [0, -8, 0] }}
               transition={{
@@ -216,24 +328,24 @@ const Hero = () => {
                 boxShadow: `0 5px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(145,94,255,0.1)`,
               }}
             >
-              <span className="font-bold text-sm" style={{ color: tech.color }}>{tech.name}</span>
+              <span className="font-bold text-xs sm:text-sm" style={{ color: tech.color }}>{tech.name}</span>
             </motion.div>
           ))}
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - sized differently for mobile */}
       <motion.div
         className="absolute xs:bottom-10 bottom-8 w-full flex justify-center items-center"
         animate={{ y: [0, 12, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
       >
         <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-white flex justify-center items-start p-2">
+          <div className="w-[28px] h-[50px] sm:w-[35px] sm:h-[64px] rounded-3xl border-4 border-white flex justify-center items-start p-2">
             <motion.div
               animate={{ y: [0, 24, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
-              className="w-3 h-3 rounded-full bg-white mb-1"
+              className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white mb-1"
             />
           </div>
         </a>

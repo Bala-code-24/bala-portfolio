@@ -29,6 +29,9 @@ const ExperienceCard = ({ experience, index }) => {
     setSelectedImage(null);
   };
 
+  // Force all timeline elements to be on the right side for mobile
+  const positionClass = window.innerWidth <= 768 ? "right" : (isEven ? "left" : "right");
+
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -37,15 +40,16 @@ const ExperienceCard = ({ experience, index }) => {
         borderRadius: "12px",
         boxShadow: `0 10px 20px rgba(0,0,0,0.3), 0 0 ${isEven ? "15px" : "10px"} rgba(145, 94, 255, 0.${isEven ? "2" : "15"})`,
         transition: "all 0.4s ease",
+        padding: window.innerWidth <= 768 ? "1rem" : "2rem",
       }}
       contentArrowStyle={{ 
-        borderRight: isEven ? "10px solid #2a2352" : "none",
-        borderLeft: !isEven ? "10px solid #1e1940" : "none",
+        borderRight: positionClass === "left" ? "10px solid #2a2352" : "none",
+        borderLeft: positionClass === "right" ? "10px solid #1e1940" : "none",
         filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))"
       }}
       date={experience.date}
-      dateClassName={`text-white font-medium ${isEven ? "text-right" : "text-left"}`}
-      position={isEven ? "left" : "right"}
+      dateClassName={`text-white font-medium ${window.innerWidth <= 768 ? "text-left text-sm mt-2" : (isEven ? "text-right" : "text-left")}`}
+      position={positionClass}
       iconStyle={{ 
         background: experience.iconBg,
         boxShadow: `0 0 0 4px rgba(145, 94, 255, 0.3), 0 0 15px rgba(145, 94, 255, ${isEven ? "0.4" : "0.3"})`,
@@ -71,21 +75,21 @@ const ExperienceCard = ({ experience, index }) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h3 className='text-white text-[24px] font-bold group relative'>
+        <h3 className='text-white text-[20px] sm:text-[24px] font-bold group relative'>
           {experience.title}
           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-500 group-hover:w-full transition-all duration-500"></span>
         </h3>
-        <p className='text-secondary text-[16px] font-semibold mb-3'>
+        <p className='text-secondary text-[14px] sm:text-[16px] font-semibold mb-3'>
           {experience.company_name}
         </p>
       </motion.div>
 
-      <ul className='list-disc ml-5 space-y-2 mb-4'>
+      <ul className='list-disc ml-2 sm:ml-5 space-y-1 sm:space-y-2 mb-4'>
         {experience.points.map((point, index) => (
           <motion.li
             key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
-            initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+            className='text-white-100 text-[12px] sm:text-[14px] pl-1 tracking-wider'
+            initial={{ opacity: 0, x: window.innerWidth <= 768 ? -10 : (isEven ? -20 : 20) }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
             viewport={{ once: true }}
@@ -98,7 +102,7 @@ const ExperienceCard = ({ experience, index }) => {
       {/* Gallery button that works on both mobile and desktop */}
       {experience.images && experience.images.length > 0 && (
         <motion.button
-          className={`w-full py-2 px-4 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/50 rounded-lg text-white font-medium mb-4 flex items-center justify-center gap-2 overflow-hidden relative`}
+          className={`w-full py-1.5 sm:py-2 px-3 sm:px-4 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/50 rounded-lg text-white text-sm sm:text-base font-medium mb-3 sm:mb-4 flex items-center justify-center gap-2 overflow-hidden relative`}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={toggleGallery}
@@ -109,7 +113,7 @@ const ExperienceCard = ({ experience, index }) => {
             whileHover={{ x: "100%" }}
             transition={{ duration: 1, ease: "easeInOut" }}
           />
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
             <circle cx="8.5" cy="8.5" r="1.5"/>
             <polyline points="21 15 16 10 5 21"/>
@@ -122,7 +126,7 @@ const ExperienceCard = ({ experience, index }) => {
       <AnimatePresence>
         {showGallery && experience.images && experience.images.length > 0 && (
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2"
+            className="grid grid-cols-1 gap-3 pt-2"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -142,12 +146,12 @@ const ExperienceCard = ({ experience, index }) => {
                 <img
                   src={img}
                   alt={`experience-img-${i}`}
-                  className="w-full h-40 object-cover transform transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-32 sm:h-40 object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-3"
                 >
-                  <span className="text-white text-sm font-medium">Click to expand</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Click to expand</span>
                 </motion.div>
               </motion.div>
             ))}
@@ -159,14 +163,14 @@ const ExperienceCard = ({ experience, index }) => {
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeImageModal}
           >
             <motion.div
-              className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-lg"
+              className="relative max-w-full max-h-[90vh] overflow-hidden rounded-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -178,7 +182,7 @@ const ExperienceCard = ({ experience, index }) => {
                 className="w-full h-full object-contain"
               />
               <motion.button
-                className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 rounded-full p-2 text-white"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-black/50 hover:bg-black/70 rounded-full p-1 sm:p-2 text-white"
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(e) => {
@@ -186,7 +190,7 @@ const ExperienceCard = ({ experience, index }) => {
                   closeImageModal();
                 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -201,13 +205,28 @@ const ExperienceCard = ({ experience, index }) => {
 
 const Experience = () => {
   const [isInView, setIsInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsInView(true);
     }, 500);
     
-    return () => clearTimeout(timeout);
+    // Check if mobile on component mount
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   return (
@@ -249,23 +268,29 @@ const Experience = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="text-center mt-4 text-secondary text-[17px] max-w-3xl mx-auto leading-[30px]"
+        className="text-center mt-4 text-secondary text-[15px] sm:text-[17px] max-w-3xl mx-auto leading-[26px] sm:leading-[30px] px-4"
       >
         Here's a timeline of my professional experience. Click on "View Gallery" to 
         see project visuals and tap on images to enlarge.
       </motion.p>
 
-      <div className='mt-20 flex flex-col'>
-        <VerticalTimeline lineColor="rgba(145, 94, 255, 0.6)">
+      <div className='mt-12 sm:mt-20 flex flex-col'>
+        <VerticalTimeline 
+          lineColor="rgba(145, 94, 255, 0.6)"
+          className={isMobile ? "vertical-timeline-custom-line" : ""}
+        >
           {experiences.map((experience, index) => (
             <motion.div
               key={`experience-${index}`}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.5, delay: isMobile ? 0.1 : index * 0.15 }}
               viewport={{ once: true, amount: 0.25 }}
             >
-              <ExperienceCard experience={experience} index={index} />
+              <ExperienceCard 
+                experience={experience} 
+                index={index} 
+              />
             </motion.div>
           ))}
           <VerticalTimelineElement
@@ -295,6 +320,43 @@ const Experience = () => {
           />
         </VerticalTimeline>
       </div>
+
+      {/* Add this CSS for mobile timeline adjustments */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .vertical-timeline-custom-line .vertical-timeline-element-content {
+            margin-left: 0 !important;
+            padding: 1rem !important;
+            width: calc(100% - 40px) !important;
+          }
+          
+          .vertical-timeline-custom-line .vertical-timeline-element-content-arrow {
+            display: none !important;
+          }
+          
+          .vertical-timeline-custom-line .vertical-timeline-element-date {
+            padding: 0 !important;
+            margin-top: 0.5rem !important;
+            position: relative !important;
+            text-align: left !important;
+            font-size: 14px !important;
+          }
+          
+          .vertical-timeline--two-columns .vertical-timeline-element-icon {
+            margin-left: 0 !important;
+            width: 40px !important;
+            height: 40px !important;
+          }
+          
+          .vertical-timeline-element {
+            margin-bottom: 2rem !important;
+          }
+          
+          .vertical-timeline::before {
+            left: 20px !important;
+          }
+        }
+      `}</style>
     </>
   );
 };
